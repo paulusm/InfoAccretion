@@ -1,0 +1,8 @@
+data_loading: off
+cache_loading: on
+munging: on
+logging: off
+load_libraries: off
+libraries: plyr, ggplot2, odfweave
+as_factors: on
+data_tables: off
