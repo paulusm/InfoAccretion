@@ -11,7 +11,7 @@ outFile <- "/home/paulus/R/projects/StackAccretion/doc/accretionarticle.odt"
 
 ctl<-odfWeaveControl(zipCmd = c("zip -r $$file$$ .", "unzip -o $$file$$"), 
                      cleanup = TRUE, 
-                     verbose = FALSE, 
+                     verbose = TRUE, 
                      debug = FALSE)
 
 odfWeave(inFile,outFile,workDir="/home/paulus/R/projects/StackAccretion/odfWeave",control=ctl)
