@@ -50,7 +50,7 @@ gettldata <- function(qid){
   tl$days <- (tl$created - min(tl$created))/60/60/24
   
   # filter by week / day
-  tl<-tl[tl$days<=200,]
+  #tl<-tl[tl$days<=200,]
   
   #take out scores - over 250 for 1711
   tl<-tl[tl$score>1,]

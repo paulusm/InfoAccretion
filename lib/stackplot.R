@@ -11,7 +11,7 @@ stackplot <- function(qid, tl, qdata, save=FALSE){
       #,stat = 'smooth'
       p <- ggplot(tl, aes(days, cumvotes, colour = AnswerId))  
       
-      p <- p + geom_area(aes(colour = AnswerId, fill= AnswerId, order = as.numeric(AnswerId)), position = 'stack' , stat='smooth', method="loess", span =0.3) #, stat='smooth', method="loess", n=3
+      p <- p + geom_area(aes(colour = AnswerId, fill= AnswerId, order = as.numeric(AnswerId)), position = 'stack' ) #, , stat='smooth', method="loess", span =0.3, n=3
       #, stat='smooth', method=lm, formula=y ~ poly(x, 2)
       #p <- p + geom_smooth(method="loess",n=3)
       p <- p +  scale_y_continuous(name="Cumulative Votes")
