@@ -6,8 +6,8 @@ currentDefs$ArialCenteredBold$fontSize <- "8"
 currentDefs$ArialCentered$fontSize <- "8"
 setStyleDefs(currentDefs)
 
-inFile <- "/home/paulus/R/projects/StackAccretion/doc/accretionarticletemplate.odt"
-outFile <- "/home/paulus/R/projects/StackAccretion/doc/accretionarticle.odt"
+inFile <- "/home/paulus/R/projects/StackAccretion/doc/findingstemplate.odt"
+outFile <- "/home/paulus/R/projects/StackAccretion/doc/findingsprocessed.odt"
 
 ctl<-odfWeaveControl(zipCmd = c("zip -r $$file$$ .", "unzip -o $$file$$"), 
                      cleanup = TRUE, 
