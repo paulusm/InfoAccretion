@@ -1,4 +1,4 @@
-doROCChart<-function(){
+doROCChart<-function(newPlot=FALSE){
 
 pp <- test.df$prob
 ll <- test.df$accepted
@@ -9,11 +9,14 @@ pred<- prediction(pp, ll)
 
 perf <- performance(pred, "tpr", "fpr")
 
-plot(perf, avg= "threshold", lwd= 3,col="grey78")
+if(newPlot)
+  plot(perf, avg= "threshold", lwd= 3,col="grey78")
+else
+  plot(perf, avg= "threshold", lwd= 3,col="grey78")
 
 #plot(perf, lty=3, col="grey78", add=T)
 
 #return the area under the ROC chart
-return(performance(pred,"auc")@y.values[1])
+return(as.double(performance(pred,"auc")@y.values[1]))
 
 }
