@@ -19,48 +19,59 @@ getPredictionAccuracy <- function(){
 doAccptModelling <- function(){
   modelnames<-vector()
   predictions<-vector()
+  AUC<-vector()
   
   model<-doAccptReg("accepted~ranked")
   modelnames<-append(modelnames, "temporal rank")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~ranked + ranked^2")
   modelnames<-append(modelnames, "quadratic temporal rank")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~log(ranked)")
   modelnames<-append(modelnames, "log of temporal rank")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~mins")
   modelnames<-append(modelnames, "time after question posted")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~answerlength")
   modelnames<-append(modelnames, "answer length (chars)")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~answerlength")
   modelnames<-append(modelnames, "Contains code")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~ranked+mins")
   modelnames<-append(modelnames, "temporal rank + time after question")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~ranked+answerlength")
   modelnames<-append(modelnames, "temporal rank + answer length")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~ranked+ answerlength + containscode")
   modelnames<-append(modelnames, "temporal rank + answer length + contains code")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
   model<-doAccptReg("accepted~log(ranked)+ answerlength + containscode")
   modelnames<-append(modelnames, "log of temporal rank + answer length + contains code")
   predictions<-append(predictions, getPredictionAccuracy())
+  AUC<-append(AUC, doROCChart())
   
-  out.df<-data.frame(modelnames, predictions)
-  colnames(out.df)<-c("Model","Prediction Accuracy on Acceptance (%)")
+  out.df<-data.frame(modelnames, predictions, AUC)
+  colnames(out.df)<-c("Model","Prediction Accuracy on Acceptance (%), Area Under ROC Curve")
   return(out.df)
 }
