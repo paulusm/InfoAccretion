@@ -1,7 +1,7 @@
 # Function to create stacked area plots of votes over time, smoothed with Loess function.
 # PM June 2012
 
-gettldata <- function(qid){
+gettldata <- function(qid, daystoshow=0, minscore=1){
   
   
   library(RMySQL)
@@ -50,10 +50,16 @@ gettldata <- function(qid){
   tl$days <- (tl$created - min(tl$created))/60/60/24
   
   # filter by week / day
-  #tl<-tl[tl$days<=200,]
+  if(daystoshow>0){
+    tl<-tl[tl$days<=daystoshow,]
+  }
   
   #take out scores - over 250 for 1711
-  tl<-tl[tl$score>1,]
+  tl<-tl[tl$score>minscore,]
+  
+  #tl$upvotes<-lapply(tl$upvotes, function(x){replace(x, x == 0, NA)}) 
+  
+  footl<<-tl
   
   #test taking ourt zero scores
   #tl<-tl[tl$cumvotes>0,]
