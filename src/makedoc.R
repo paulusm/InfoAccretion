@@ -7,8 +7,8 @@ currentDefs$ArialCentered$fontSize <- "8"
 setStyleDefs(currentDefs)
 
 imageDefs <- getImageDefs()
-imageDefs$dispWidth <- 6
-imageDefs$dispHeight<- 6
+imageDefs$dispWidth <- 3
+imageDefs$dispHeight<- 3
 setImageDefs(imageDefs)
 
 inFile <- "/home/paulus/R/projects/StackAccretion/doc/findingstemplate.odt"

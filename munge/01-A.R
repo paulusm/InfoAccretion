@@ -28,3 +28,17 @@ test.df <-  rbind(accpt.test, nonaccpt.test)
 cache('training.df')
 cache('test.df')
 
+# get the diffs data
+con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflowDec11", host="localhost")
+
+qdiff.df <- dbGetQuery(con, "select `score`, `viewcount`, `diff`, `minsbetween`, `bodyedits`, `titleedits`  from z_edit_summary where PostTypeId=1 and bodyedits>1")
+qdiff.df$viewcount<-as.integer( qdiff.df$viewcount)
+con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflowDec11", host="localhost")
+
+adiff.df <- dbGetQuery(con, "select `score`, `diff`, `minsbetween`, `bodyedits` from z_edit_summary where PostTypeId=2 and BodyEdits > 1")
+
+cache('qdiff.df')
+cache('adiff.df')
+
+foo<-dbDisconnect(con) 
+

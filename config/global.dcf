@@ -1,4 +1,4 @@
-data_loading: off
+data_loading: on
 cache_loading: on
 munging: off
 logging: off
