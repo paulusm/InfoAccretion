@@ -1,8 +1,5 @@
 sample100random <- function(){
 
-
-library(RMySQL)
-
 con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
 
 #sample of questions with a few answers and votes - and score >3

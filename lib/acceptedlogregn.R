@@ -1,6 +1,6 @@
 doAccptReg <- function(eqn){
   eqn<-as.formula(eqn)
-  library(pscl)
+
   #training.df <- scale(training.df)
   training.df$containscode <- as.factor(training.df$containscode)
   test.df$containscode <- as.factor(test.df$containscode)
@@ -72,6 +72,6 @@ doAccptModelling <- function(){
   AUC<-append(AUC, doROCChart())
   
   out.df<-data.frame(modelnames, predictions, AUC)
-  colnames(out.df)<-c("Model","Prediction Accuracy on Acceptance (%), Area Under ROC Curve")
+  colnames(out.df)<-c("Model","Prediction Accuracy(%)", "Area Under ROC Curve")
   return(out.df)
 }

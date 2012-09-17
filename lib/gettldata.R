@@ -4,10 +4,6 @@
 gettldata <- function(qid, daystoshow=0, minscore=1){
   
   
-  library(RMySQL)
-  library(plyr)
-  library(gdata)
-  
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
   
  

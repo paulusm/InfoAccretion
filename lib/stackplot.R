@@ -3,10 +3,6 @@
 
 stackplot <- function(qid, tl, qdata, save=FALSE){
 
-
-      library(ggplot2)
-      library(gdata)
-      
       
       #,stat = 'smooth'
       p <- ggplot(tl, aes(days, cumvotes, colour = AnswerId))  

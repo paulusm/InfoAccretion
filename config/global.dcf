@@ -2,7 +2,7 @@ data_loading: on
 cache_loading: on
 munging: off
 logging: off
-load_libraries: off
-libraries: plyr, ggplot2, odfweave
+load_libraries: on
+libraries: RMySQL, plyr, reshape2, ggplot2, gdata, odfWeave, grid, pscl, ROCR
 as_factors: on
 data_tables: off

@@ -4,9 +4,7 @@
 
 hourglass.plot <- function(qid, df, qdata, save=FALSE) {
   # Added by PM to adjust dataset
-  library("reshape2")
-  library("ggplot2")
-  library("grid")
+
   df<-data.frame(df$days, df$AnswerId, df$upvotes) #df$cumvotes
   df<-dcast(df,df.days~df.AnswerId)
   # end PM added

@@ -1,7 +1,5 @@
 getTLSummary <- function(){
   
-  library(RMySQL)
-  
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
     
   

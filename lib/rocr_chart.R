@@ -1,6 +1,6 @@
 doROCChart<-function(newPlot=FALSE){
 
-library("ROCR")
+
   
 pp <- test.df$prob
 ll <- test.df$accepted

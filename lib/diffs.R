@@ -1,6 +1,4 @@
 
-library("ggplot2")
-library("grid")
 
 qdiffs.correlation <- function(){
   qdiffcor<-cor (qdiff.df,use="complete.obs", method="spearman")

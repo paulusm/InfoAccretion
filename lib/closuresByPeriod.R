@@ -1,6 +1,4 @@
 closuresbyperiod <- function(){
-  
-  library(RMySQL)
    
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflowDec11", host="localhost")  
     
@@ -19,6 +17,7 @@ closuresbyperiod <- function(){
   p <- ggplot(data.df, aes(period, (closures/questions)*100))
   p <- p + geom_point()
   #p <- p + geom_point(aes(period, questions/100))
+  p <- p + theme_complete_bw()
   p <- p + geom_smooth(aes(group=1))
   p <- p +  scale_y_continuous(name="Duplicate closures as a percentage of questions")
   p <- p + opts(axis.text.x=theme_text(angle=90,hjust=1,vjust=1))
