@@ -28,3 +28,21 @@ qdiffs.barplot<-function(){
   p <- p + theme_complete_bw()
   p
 }
+
+diffs.linefreq<- function(){
+  p <- ggplot(qdiff.df) 
+  p <- p + geom_freqpoly(aes(x = diff, y=..density..), colour="red",size = 1.5,binwidth=0.02) 
+  p <- p + geom_freqpoly(data=adiff.df,aes( x = diff, y=..density..), colour="blue",linetype="dashed",size = 1.5,binwidth=0.02)
+  p <- p + scale_x_continuous(limits=c(0, 0.98))
+  p <- p + theme_complete_bw()
+  return(p)
+}
+
+diffs.timefreq<- function(){
+  p <- ggplot(qdiff.df) 
+  p <- p + geom_freqpoly(aes(x = minsbetween/60/24, y=..density..), colour="red",size = 1.5) 
+  p <- p + geom_freqpoly(data=adiff.df,aes( x = minsbetween/60/24, y=..density..), colour="blue",linetype="dashed",size = 1.5)
+  p <- p + scale_x_log10("days (log scale)")
+  p <- p + theme_complete_bw()
+  return(p)
+}

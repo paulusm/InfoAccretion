@@ -9,8 +9,8 @@ setStyleDefs(currentDefs)
 imageDefs <- getImageDefs()
 imageDefs$dispWidth <- 4
 imageDefs$dispHeight<- 4
-imageDefs$plotWidth <- 1200
-imageDefs$plotHeight<- 1200
+imageDefs$plotWidth <- 800
+imageDefs$plotHeight<- 800
 setImageDefs(imageDefs)
 
 inFile <- "/home/paulus/R/projects/StackAccretion/doc/findingstemplate.odt"
