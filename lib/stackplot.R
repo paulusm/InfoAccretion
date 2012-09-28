@@ -13,7 +13,7 @@ stackplot <- function(qid, tl, qdata, save=FALSE){
       p <- p +  scale_y_continuous(name="Cumulative Votes")
       p <- p +  scale_x_continuous(name="Days")
       p <- p +  theme_complete_bw()
-      p <- p +  opts(title = paste(qdata$Title, "\n", qdata$Tags, ", ", qdata$ViewCount, " views"),legend.position = "none") 
+      p <- p +  opts(title = paste(qdata$Title, "\n", qdata$Tags, ", ", qdata$ViewCount, " views")) #,legend.position = "none"
       
       
       #p <- p + geom_area(subset = .(Type %in% c('a', 'b')),aes(y=Value, fill=Type), position = 'stack')
@@ -22,8 +22,8 @@ stackplot <- function(qid, tl, qdata, save=FALSE){
       # scale_fill_hue(l=40) + scale_colour_hue(l=40)
       #opts(legend.position = "none") 
       
-      p <- p + scale_fill_manual(values=rep(c("#DADAEB", "#BCBDDC", "#9E9AC8", "#807DBA","#6A51A3", "#4A1486" ), 5))
-      p <- p + scale_colour_manual(values=rep(c("#DADAEB", "#BCBDDC", "#9E9AC8", "#807DBA","#6A51A3", "#4A1486" ), 5))
+      p <- p + scale_fill_manual(values=getColours(tl$AnswerId))
+      p <- p + scale_colour_manual(values=getColours(tl$AnswerId))
       
       if(save==TRUE) {ggsave(filename = gsub(" ","", paste("../graphs/",qid,".png")))}
       return(p)

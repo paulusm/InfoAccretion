@@ -1,7 +1,7 @@
 # Function to create stacked area plots of votes over time, smoothed with Loess function.
 # PM June 2012
 
-gettldata <- function(qid, daystoshow=0, minscore=1){
+gettldata <- function(qid, daystoshow=0, minscore=1, initcols=T){
   
   
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
@@ -33,7 +33,8 @@ gettldata <- function(qid, daystoshow=0, minscore=1){
                               group by AnswerId, created, reputation 
                               order by created) as e
                               on c.created = e.created
-                              and c.AnswerId = e.AnswerId"))
+                              and c.AnswerId = e.AnswerId
+                             "))
       # short: 3180. 2732
   # mid: 88,845060
   # long: 1711 (books), 6166 (php ide),888224 (wrong assumptions)
@@ -61,6 +62,8 @@ gettldata <- function(qid, daystoshow=0, minscore=1){
   #tl<-tl[tl$cumvotes>0,]
   
   foo<-dbDisconnect(con) 
+  
+  if(initcols==T){initColours(tl$AnswerId)}
   
   return(tl)
 }

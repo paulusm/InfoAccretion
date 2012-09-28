@@ -10,6 +10,8 @@ p <- p + geom_area(stat='smooth', method="loess" ,aes(position = 'stack'),size=0
 p
 
 #test plot
-qid<-55363
-p<-stackplot(qid, gettldata(qid), getqdata(qid), F) 
+qid<-13569
+p<-stackplot(qid, gettldata(qid,1000,6,T), getqdata(qid), F) 
+p
+p<-hourglass.plot(qid, gettldata(qid,1000,6,F), getqdata(qid), F) 
 p

@@ -31,8 +31,8 @@ hourglass.plot <- function(qid, df, qdata, save=FALSE) {
   p <- p +  scale_y_continuous(name="Votes")
   p <- p +  scale_x_continuous(name="Days")
   p <- p +  theme_complete_bw()
-  p <- p + scale_fill_manual(values=rep(c("#DADAEB", "#BCBDDC", "#9E9AC8", "#807DBA","#6A51A3", "#4A1486" ), 5))
-  p <- p + scale_colour_manual(values=rep(c("#DADAEB", "#BCBDDC", "#9E9AC8", "#807DBA","#6A51A3", "#4A1486" ), 5))
+  p <- p + scale_fill_manual(values=getColours(smooth.df$id))
+  p <- p + scale_colour_manual(values=getColours(smooth.df$id))
   p <- p +  opts(title = paste(qdata$Title, "\n", qdata$Tags, ", ", qdata$ViewCount, " views"),axis.text.y =  theme_blank()) 
   
   #legend.position = "none",
