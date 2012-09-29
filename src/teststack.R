@@ -9,9 +9,3 @@ p <- ggplot(test.df, aes(days, answers, colour = colour,fill=colour))
 p <- p + geom_area(stat='smooth', method="loess" ,aes(position = 'stack'),size=0) #, , stat='smooth', method="loess", span =0.3, n=3
 p
 
-#test plot
-qid<-13569
-p<-stackplot(qid, gettldata(qid,1000,6,T), getqdata(qid), F) 
-p
-p<-hourglass.plot(qid, gettldata(qid,1000,6,F), getqdata(qid), F) 
-p
