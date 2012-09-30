@@ -1,4 +1,4 @@
-dupeoffclosuresbyperiod <- function(){
+dupeclosuresbyperiod <- function(){
    
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflowDec11", host="localhost")  
     

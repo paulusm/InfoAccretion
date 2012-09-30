@@ -34,7 +34,7 @@ hourglass.plot <- function(qid, df, qdata, save=FALSE) {
   p <- p + scale_fill_manual(values=getColours(smooth.df$id))
   p <- p + scale_colour_manual(values=getColours(smooth.df$id))
   p <- p +  opts(title = paste(qdata$Title, "\n", qdata$Tags, ", ", qdata$ViewCount, " views"),axis.text.y =  theme_blank()) 
-  
+  #
   #legend.position = "none",
   if(save==TRUE) {ggsave(filename = gsub(" ","", paste("charts/",qid,".png")))}
   
