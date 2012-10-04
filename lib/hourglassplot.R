@@ -1,3 +1,6 @@
+# Not used in final paper
+# Creates a streamgraph, but seems flakey
+
 # data: Masaaki Ishida (luna@pos.to)
 # http://luna.pos.to/whale/sta.html
 
@@ -40,6 +43,5 @@ hourglass.plot <- function(qid, df, qdata, save=FALSE) {
   
   return(p)
   
-  #qplot(x = x, y = y, data = smooth.df, geom = "polygon", color =id , fill = id, xlab="Days", ylab="Cumulative Votes") #I("white")
-}
+ }
 

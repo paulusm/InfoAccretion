@@ -1,3 +1,5 @@
+# not used in paper, creates random charts for analysis
+# PM 2012
 sample100random <- function(){
 
 con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")

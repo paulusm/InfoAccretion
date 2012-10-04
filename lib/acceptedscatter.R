@@ -1,3 +1,6 @@
+# Create the plot of answers by accepted and not
+# PM 2012
+
 AcceptedScatter <- function(){
   
 
@@ -11,7 +14,5 @@ AcceptedScatter <- function(){
     p <- p + scale_y_continuous("log of elapsed minutes") 
     return(p)
                                                               
-    #qplot(ranked, mins,log="xy", xlab="Temporal Rank", ylab="Minutes to Answer",
-          #data=graph.df,colour=accepted,shape=accepted, geom="jitter", size=6)
-
+ 
 }

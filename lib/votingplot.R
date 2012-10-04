@@ -1,4 +1,5 @@
-# Function to create stacked area plots of votes over time, smoothed with Loess function.
+# Function to create bubble plots of votes over time, smoothed with Loess function.
+# Eventually combined into stackplot.R
 # PM June 2012
 
 votingplot <- function(qid, tl, qdata, save=FALSE){

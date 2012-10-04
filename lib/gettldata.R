@@ -1,13 +1,21 @@
-# Function to create stacked area plots of votes over time, smoothed with Loess function.
+# Prepare dataset for the timeline stack graph
 # PM June 2012
 
 gettldata <- function(qid, daystoshow=0, minscore=1, initcols=T){
   
+  #See if data already available, if so just return it
+  objname<-paste("timeline_", qid,".df", sep="")
+  if (objname %in% ls(envir = .GlobalEnv))
+  {
+   tl<-get(objname,envir = .GlobalEnv)
+   if(initcols==T){initColours(tl$AnswerId)}
+   return(tl)
+  }
   
+  #otherwise, hit the DB
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
   
- 
-      
+    
   
   # main voting data
   tl <- dbGetQuery(con, paste("select c.created, c.AnswerId, ifnull(d.votes,0) as upvotes, ifnull(e.votes,0) as downvotes, c.reputation,c.score from(
@@ -51,19 +59,17 @@ gettldata <- function(qid, daystoshow=0, minscore=1, initcols=T){
     tl<-tl[tl$days<=daystoshow,]
   }
   
-  #take out scores - over 250 for 1711
+  #take out scores over threshold
   tl<-tl[tl$score>minscore,]
   
-  #tl$upvotes<-lapply(tl$upvotes, function(x){replace(x, x == 0, NA)}) 
-  
-  footl<<-tl
-  
-  #test taking ourt zero scores
-  #tl<-tl[tl$cumvotes>0,]
   
   foo<-dbDisconnect(con) 
   
   if(initcols==T){initColours(tl$AnswerId)}
   
+  #cache result
+  assign(objname, tl, envir = .GlobalEnv)
+  cache(objname)
+ 
   return(tl)
 }

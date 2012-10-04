@@ -1,4 +1,14 @@
+# Return a summary table for the timeline data
+# PM 2012
 getTLSummary <- function(){
+
+  
+  # return if already available
+  objname<-"timeline_summary.df"
+  if (objname %in% ls(envir = .GlobalEnv))
+  {
+    return(get(objname,envir = .GlobalEnv))
+  }
   
   con <- dbConnect(MySQL(), user="stacko", password="stacko",dbname="StackOverflow", host="localhost")
     
@@ -12,6 +22,10 @@ getTLSummary <- function(){
 
   
   foo<-dbDisconnect(con) 
+  
+  #cache result
+  assign(objname, tltable, envir = .GlobalEnv)
+  cache(objname)
   
   return(tltable)
   

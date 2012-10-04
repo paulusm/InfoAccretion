@@ -1,9 +1,30 @@
+# Experimenting with question plots
+
+qid<-652788
+p<-stackplot(qid, gettldata(qid,1000,15,T), getqdata(qid), F) 
+p
+
+# sort dictionary by value
+qid<-613183
+p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
+p
+
+# new emerging - jquery grid
+qid<-159025
+p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
+p
+
+#fave git features muticolured
+qid<-347901
+p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
+p
+
+
+
 #PDO v Mysqli - new preferred answer
 qid<-13569
-p<-stackplot(qid, gettldata(qid,1000,6,T), getqdata(qid), F) 
-p
-p<-votingplot(qid, gettldata(qid,1000,6,initcols=F), getqdata(qid), F) 
-p
+p<-stackplot(qid, , getqdata(qid), F) 
+
 
 #Euler question
 qid<-295579
@@ -20,6 +41,7 @@ p
 #p
 p<-votingplot(qid, gettldata(qid,1000,10,initcols=F), getqdata(qid), F) 
 p
+
 
 # iphone
 qid<-422066

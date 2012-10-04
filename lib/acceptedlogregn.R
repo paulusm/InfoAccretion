@@ -1,3 +1,6 @@
+# functions to run logistic regression and get predictions using different models
+# PM 2012
+
 doAccptReg <- function(eqn){
   eqn<-as.formula(eqn)
 

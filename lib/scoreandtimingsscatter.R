@@ -1,4 +1,8 @@
-#getscoreandtimingsscatter<-function(){
+# not used in paper
+# exploratory work
+# PM 2012
+
+getscoreandtimingsscatter<-function(){
   library(RMySQL)
   library(ggplot2)
   library(grid)
@@ -27,7 +31,4 @@
   
   foo<-dbDisconnect(con) 
   
-
-  
-
-#}
+}

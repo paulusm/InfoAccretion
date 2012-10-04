@@ -1,4 +1,5 @@
-
+# Diffs analysis
+# PM 2012
 
 qdiffs.correlation <- function(){
   qdiffcor<-cor (qdiff.df,use="complete.obs", method="spearman")

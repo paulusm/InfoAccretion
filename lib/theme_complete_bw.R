@@ -1,4 +1,4 @@
-
+# Remove chart background greyness
 # props to http://sape.inf.usi.ch/quick-reference/ggplot2/themes 
 theme_complete_bw <- function(base_size = 12) {
   structure(list(
