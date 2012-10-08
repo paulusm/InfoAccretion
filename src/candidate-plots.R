@@ -4,6 +4,11 @@ qid<-652788
 p<-stackplot(qid, gettldata(qid,1000,15,T), getqdata(qid), F) 
 p
 
+#why use i as varname
+qid<-454303 
+p<-stackplot(qid, gettldata(qid,400,5,T), getqdata(qid)) 
+p
+
 # sort dictionary by value
 qid<-613183
 p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
@@ -16,7 +21,7 @@ p
 
 #fave git features muticolured
 qid<-347901
-p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
+p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid),T) 
 p
 
 

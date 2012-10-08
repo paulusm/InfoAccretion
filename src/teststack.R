@@ -1,3 +1,4 @@
+# Dummy graph
 # used to develop the stack graph
 
 library(ggplot2)

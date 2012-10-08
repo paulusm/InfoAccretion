@@ -2,7 +2,7 @@
 # Added - second plot of blubble chart voting along timeline
 # PM June 2012
 
-stackplot <- function(qid, tl, qdata, save=FALSE){
+stackplot <- function(qid, tl, qdata, save=F){
 
       #remove zeros for the bubble chart
       tl2 <- subset(tl, tl$upvotes>0)
@@ -36,7 +36,7 @@ stackplot <- function(qid, tl, qdata, save=FALSE){
       p <- p + scale_fill_manual(values=getColours(tl$AnswerId))
       p <- p + scale_colour_manual(values=getColours(tl$AnswerId))
       
-      if(save==TRUE) {ggsave(filename = gsub(" ","", paste("../graphs/",qid,".png")))}
+      if(save==TRUE) {ggsave(filename = paste("graphs/",qid,".tiff",sep=""))}
       return(p)
 
 }
