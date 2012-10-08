@@ -37,6 +37,9 @@ dupeclosuresbyperiod <- function(){
   p <- p + geom_smooth(aes(group=1))
   p <- p +  scale_y_continuous(name="Duplicate closures as a percentage of questions")
   p <- p + opts(axis.text.x=theme_text(angle=90,hjust=1,vjust=1))
+  tiff("graphs/closures_dupes.tif",width=1024, height=1024)
+  print(p)
+  dev.off()
   return(p)
 }
 
@@ -75,6 +78,9 @@ offtopicclosuresbyperiod <- function(){
   p <- p + geom_smooth(aes(group=1))
   p <- p +  scale_y_continuous(name="Offtopic closures as a percentage of questions")
   p <- p + opts(axis.text.x=theme_text(angle=90,hjust=1,vjust=1))
+  tiff("graphs/closures_offtopic.tif",width=1024, height=1024)
+  print(p)
+  dev.off()
   return(p)
   
 

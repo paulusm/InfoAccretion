@@ -12,6 +12,12 @@ AcceptedScatter <- function(){
     p <- p + theme_complete_bw()
     p <- p + scale_x_continuous("log of temporal rank") 
     p <- p + scale_y_continuous("log of elapsed minutes") 
+    
+    tiff("graphs/acceptedscatter.tif",width=1024, height=1024)
+    print(p)
+    dev.off()
+    
+    
     return(p)
                                                               
  

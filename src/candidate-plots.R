@@ -34,13 +34,13 @@ p<-stackplot(qid, , getqdata(qid), F)
 #Euler question
 qid<-295579
 p<-stackplot(qid, gettldata(qid,200,6,T), getqdata(qid), F) 
-p
-p<-votingplot(qid, gettldata(qid,200,6,initcols=F), getqdata(qid), F) 
-p
+tiff("graphs/test.tif",width=1024, height=102)
+print(p)
+dev.off()
 
 # SOAP Android - Nice mix (complementary?)
 qid<-297586
-p<-stackplot(qid, gettldata(qid,1000,10,initcols=T), getqdata(qid), F) 
+p<-stackplot(qid, gettldata(qid,1000,10,initcols=T), getqdata(qid), T) 
 p
 #p<-hourglass.plot(qid, gettldata(qid,1000,10,initcols=T), getqdata(qid), F) 
 #p
@@ -50,7 +50,7 @@ p
 
 # iphone
 qid<-422066
-p<-stackplot(qid, gettldata(qid,1000,2,initcols=T), getqdata(qid), F) 
+p<-stackplot(qid, gettldata(qid,1000,2,initcols=T), getqdata(qid), T) 
 p
 p<-hourglass.plot(qid, gettldata(qid,1000,2,initcols=F), getqdata(qid), F) 
 p
