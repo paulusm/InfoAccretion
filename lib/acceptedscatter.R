@@ -18,7 +18,30 @@ AcceptedScatter <- function(){
     dev.off()
     
     
-    return(p)
-                                                              
+    return(p)                                                             
  
+}
+
+
+AcceptedBar <- function(){
+  
+  
+  graph.df <- training.df[sample(1:dim(training.df)[1], size=500, replace=FALSE),]
+  graph.df <- subset(graph.df, ranked<8)
+  graph.df$accepted <- as.factor(graph.df$accepted)
+  p <- ggplot(graph.df, aes(ranked))
+  p <- p + geom_bar(aes(fill=accepted, colour=accepted),position="fill",binwidth=1)
+  p <- p + theme_complete_bw()
+  p <- p + scale_fill_grey()
+  p <- p + scale_colour_grey()
+  p <- p + opts(legend.key.size = unit(2, "cm"))
+  p <- p + scale_x_discrete("temporal rank", limits=c(1:7), labels=c(1:7)) 
+  
+  tiff("graphs/acceptedbar.tif",width=1024, height=1024)
+  print(p)
+  dev.off()
+  
+  
+  return(p)                                                             
+  
 }
