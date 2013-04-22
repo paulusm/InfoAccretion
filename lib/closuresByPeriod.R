@@ -1,7 +1,7 @@
 # Scatter charts of closures as a percentage of total questions
 # PM 2012
 
-dupeclosuresbyperiod <- function(){
+dupeclosuresbyperiod <- function(savename="dupeclosebyperiod"){
   
   #See if data already available, if so just use it
   objname<-"dupeclosures.df"
@@ -37,14 +37,17 @@ dupeclosuresbyperiod <- function(){
   p <- p + geom_smooth(aes(group=1))
   p <- p +  scale_y_continuous(name="Duplicate closures as a percentage of questions")
   p <- p + opts(axis.text.x=theme_text(angle=90,hjust=1,vjust=1))
-  tiff("graphs/closures_dupes.tif",width=1024, height=1024)
+  postscript(paste("graphs/",savename,".eps",sep=""), width = 12, height = 12, 
+             horizontal = FALSE, paper = "special") #width = 5, height = 5,
+  print(p)
+  png(paste("graphs/",savename,".png",sep=""), width=1024, height=1024)
   print(p)
   dev.off()
   return(p)
 }
 
 
-offtopicclosuresbyperiod <- function(){
+offtopicclosuresbyperiod <- function(savename="offtopicclosebyperiod"){
   #See if data already available, if so just return it
   objname<-"offtopicclosures.df"
   if (objname %in% ls(envir = .GlobalEnv))
@@ -78,7 +81,10 @@ offtopicclosuresbyperiod <- function(){
   p <- p + geom_smooth(aes(group=1))
   p <- p +  scale_y_continuous(name="Offtopic closures as a percentage of questions")
   p <- p + opts(axis.text.x=theme_text(angle=90,hjust=1,vjust=1))
-  tiff("graphs/closures_offtopic.tif",width=1024, height=1024)
+  postscript(paste("graphs/",savename,".eps",sep=""), width = 12, height = 12, 
+             horizontal = FALSE, paper = "special") #width = 5, height = 5,
+  print(p)
+  png(paste("graphs/",savename,".png",sep=""), width=1024, height=1024)
   print(p)
   dev.off()
   return(p)

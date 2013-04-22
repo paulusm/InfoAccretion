@@ -4,6 +4,10 @@ qid<-652788
 p<-stackplot(qid, gettldata(qid,1000,15,T), getqdata(qid), F) 
 p
 
+qid<-176264
+p<-stackplot(qid, gettldata(qid,1000,3,T), getqdata(qid),T) 
+p
+
 #why use i as varname
 qid<-454303 
 p<-stackplot(qid, gettldata(qid,400,5,T), getqdata(qid)) 
@@ -16,7 +20,7 @@ p
 
 # new emerging - jquery grid
 qid<-159025
-p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), F) 
+p<-stackplot(qid, gettldata(qid,1000,5,T), getqdata(qid), T) 
 p
 
 #fave git features muticolured
@@ -28,7 +32,7 @@ p
 
 #PDO v Mysqli - new preferred answer
 qid<-13569
-p<-stackplot(qid, , getqdata(qid), F) 
+p<-stackplot(qid, gettldata(qid,1000,1,T), getqdata(qid), T) 
 
 
 #Euler question
